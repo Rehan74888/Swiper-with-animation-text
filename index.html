@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+      display: flex;
+      justify-content: center;
+      bottom: 10%;
+      gap: 15px;
+    }
+    .swiper {
+      border-radius: 10px;
+    }
+    .swiper-pagination-bullet-active{
+      position: relative;
+    }
+    .swiper-pagination-bullet-active::after{
+      content: "";
+      height: 20px;
+      width: 20px;
+      border: 1px solid white;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      animation: popOut 0.5s; 
+      transition: ease-in-out 0.5s;
+    }
+    .swiper-pagination-bullet{
+      width: 4px;
+      height: 4px;
+      background: #fff;
+    }
+    .swiper-slide {     
+      position: relative;
+      display: flex;
+      justify-content: end;
+      flex-direction: column;
+    }
+    #bg-image{
+      height: 100%;
+      object-fit: cover;
+    }
+    .container{
+      display: flex;
+      flex-direction: column;
+      padding: 2em 50px;
+      position: absolute;
+    } 
+    .button{
+      display: flex;
+    }
+    .btn-1{
+      background-color: #fff;
+      padding: 10px 45px;
+      border-radius: 35px;
+    }
+    .btn-1:hover{
+      background-color: #111111;
+      color: #fff;
+    }
+    .heading{
+      color: #fff;
+    }
+    .text-1 p{
+      margin: 0;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 16px;
+    }
+    .text-2 h2{
+      font-weight: 600;
+      font-size: 53px;
+      line-height: 64px;
+      padding-bottom: 8px;
+      margin: 0px;
+    }
+    .btn-1 p{
+      font-weight: 600;
+      font-size: 15px;
+      line-height: normal;
+      margin: 0;
+    }
+    .swiper-slide-active .slide-text{
+      opacity: 0;
+      transform: translateY(80%);
+      animation: slide-up 0.8s forwards;
+    }
+    .swiper-slide-active .text-1 .slide-text {
+      animation-delay: 0.6s;
+    }
+    .swiper-slide-active .text-2 .slide-text {
+      animation-delay: 0.8s;
+    }
+    .swiper-slide-active .button .slide-text {
+      animation-delay: 1s;
+    }
+    @keyframes popOut {
+      0% {opacity: 0;
+          height: 1px;
+          width: 1px;
+      }
+      100% { opacity: 1; 
+          height: 20px;
+          width: 20px;
+      }
+    }
+    @keyframes slide-up{
+      from{
+        opacity: 0.2;
+        transform: translateY(80%);
+      }
+      to{
+        opacity: 1;
+        transform: translate(0);
+      } 
+    }
+    @media (max-width: 749px){
+    .container{
+      position: absolute;
+      padding: 25px;
+    } 
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+      gap: 5px;
+      bottom: 2%;
+    }
+    #bg-image{
+      object-fit: cover;
+    }
+    #bg-image-2{
+      height: 100%;
+      object-fit: cover;
+      object-position: 20%;
+    }
+    .text-2 h2{
+      margin: 0;
+      padding-bottom: 5px;
+      font-size: 38px;
+      line-height: 46px;
+    } 
+    .btn-1 p{
+      font-size: 12px;
+    }
+    .swiper-slide{
+      height: 600px;
+    }
+    .swiper-pagination-bullet-active::after{
+      border: unset;
+    }
+    }  
+  </style>
+</head>
+<body>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img id="bg-image" src="https://ev3m8u4eq495fuoo-63914016921.shopifypreview.com/cdn/shop/files/fw_s1.jpg?v=1717400108&width=1500">
+        <div class="container animated-1">
+        <div class="heading">
+          <div class="text-1">
+            <p class="slide-text">TOP COLLECTIONS</p>
+          </div>
+          <div class="text-2">
+            <h2 id="title-1" class="slide-text">High-Top Design</h2>
+          </div>
+        </div>
+          <div class="button ">
+            <div class="slide-text">
+            <div class="btn-1">
+                <p>Shop Collection</p>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+      <div class="swiper-slide slide-2">
+        <img id="bg-image-2" src="https://ev3m8u4eq495fuoo-63914016921.shopifypreview.com/cdn/shop/files/fw_s2.jpg?v=1717400108&width=1500">
+        <div class="container animated-2">
+          <div class="heading">
+            <div class="text-1">
+              <p class="slide-text">TOP COLLECTIONS</p>
+            </div>
+            <div class="text-2">
+              <h2 id="title-2" class="slide-text">Super Comfort</h2>
+            </div>
+          </div>
+            <div class="button">
+              <div class="slide-text">
+              <div class="btn-1">
+                  <p>Shop Collection</p>
+              </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="swiper-slide slide-3">
+        <img id="bg-image" src="https://ev3m8u4eq495fuoo-63914016921.shopifypreview.com/cdn/shop/files/fw_s3.jpg?v=1717400108&width=1500">
+        <div class="container animated-3">
+          <div class="heading">
+            <div class="text-1">
+              <p id="description-1" class="slide-text">TOP COLLECTIONS</p>
+            </div>
+            <div class="text-2">
+              <h2 id="title-3" class="slide-text">Limited Edition</h2>
+            </div>
+          </div>
+            <div class="button">
+              <div class="slide-text">
+              <div class="btn-1">
+                  <p>Shop Collection</p>
+              </div>
+              </div>
+            </div>       
+          </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    </div>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      direction: "horizontal",
+      effect: "fade",
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+  });
+  </script>
+</body>
+</html>
